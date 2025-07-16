@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Todo App | Smart Task Management</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="AI-powered todo app with translation capabilities. Organize your tasks efficiently with modern design and smart features.">
+    <meta name="keywords" content="todo, task management, AI, translation, productivity">
+    <meta name="author" content="Elias - AI Todo App">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI-Powered Todo App">
+    <meta property="og:description" content="Smart task management with AI translation">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="script.js" as="script">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <!-- Main Application Container -->
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="app-title">AI Todo</h1>
+                        <p class="app-subtitle">Smart Task Management</p>
+                    </div>
+                </div>
+                
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="headerTotalTasks">0</span>
+                        <span class="stat-label">Tasks</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="headerCompletedTasks">0</span>
+                        <span class="stat-label">Done</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Control Panel -->
+            <section class="control-panel">
+                <div class="panel-grid">
+                    <!-- Language Selection Card -->
+                    <div class="control-card language-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.01-4.65 1.73-6.53H16V4.5H9.5v-2h-2v2H2v1.5h11.17C13.5 7.92 13.44 9.75 12.87 15.07zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Translation</h3>
+                        </div>
+                        <div class="card-content">
+                            <select id="languageSelect" class="language-selector">
+                                <option value="en">🇺🇸 English (Default)</option>
+                                <option value="es">🇪🇸 Spanish</option>
+                                <option value="fr">🇫🇷 French</option>
+                                <option value="de">🇩🇪 German</option>
+                                <option value="it">🇮🇹 Italian</option>
+                                <option value="pt">🇵🇹 Portuguese</option>
+                                <option value="ru">🇷🇺 Russian</option>
+                                <option value="ja">🇯🇵 Japanese</option>
+                                <option value="ko">🇰🇷 Korean</option>
+                                <option value="zh">🇨🇳 Chinese</option>
+                                <option value="ar">🇸🇦 Arabic</option>
+                                <option value="hi">🇮🇳 Hindi</option>
+                                <option value="nl">🇳🇱 Dutch</option>
+                                <option value="sv">🇸🇪 Swedish</option>
+                                <option value="da">🇩🇰 Danish</option>
+                                <option value="no">🇳🇴 Norwegian</option>
+                                <option value="fi">🇫🇮 Finnish</option>
+                                <option value="pl">🇵🇱 Polish</option>
+                                <option value="tr">🇹🇷 Turkish</option>
+                                <option value="he">🇮🇱 Hebrew</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Card -->
+                    <div class="control-card stats-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Progress</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="progress-stats">
+                                <div class="progress-item">
+                                    <div class="progress-circle" id="progressCircle">
+                                        <svg viewBox="0 0 36 36" class="circular-chart">
+                                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                            <path class="circle" id="progressPath" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                            <text x="18" y="20.35" class="percentage" id="progressPercentage">0%</text>
+                                        </svg>
+                                    </div>
+                                    <div class="progress-text">
+                                        <span class="progress-label">Completion Rate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Task Input Section -->
+            <section class="task-input-section">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <div class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <input 
+                            type="text" 
+                            id="todoInput" 
+                            class="task-input" 
+                            placeholder="What needs to be done today?"
+                            maxlength="200"
+                            autocomplete="off"
+                            spellcheck="true"
+                        >
+                        <div class="input-actions">
+                            <button id="addBtn" class="add-button" title="Add Task">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Add Task</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-footer">
+                        <span class="char-counter">
+                            <span id="charCount">0</span>/200 characters
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Task List Section -->
+            <section class="task-list-section">
+                <div class="section-header">
+                    <h2 class="section-title">Your Tasks</h2>
+                    <div class="section-actions">
+                        <button id="clearCompleted" class="clear-button" title="Clear Completed Tasks">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14zM10 11v6M14 11v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Clear Completed
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Task Filters -->
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">All Tasks</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+
+                <!-- Tasks Container -->
+                <div class="tasks-container">
+                    <div id="todoList" class="todo-list">
+                        <!-- Tasks will be rendered here -->
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div id="emptyState" class="empty-state">
+                        <div class="empty-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="empty-title">No tasks yet</h3>
+                        <p class="empty-description">Add your first task above to get started with your AI-powered todo list!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p class="footer-text">Built with ❤️ using AI technology</p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-stats">
+                        <span class="footer-stat">
+                            <span class="stat-value" id="footerTotalTasks">0</span>
+                            <span class="stat-label">Total Tasks</span>
+                        </span>
+                        <span class="footer-stat">
+                            <span class="stat-value" id="footerCompletedTasks">0</span>
+                            <span class="stat-label">Completed</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
